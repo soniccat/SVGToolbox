@@ -21,9 +21,10 @@
     </extensions>
 
     <actions>
-        <group id="SVGToolbox.Group">
+        <group id="SVGToolbox.Group" class="action.ToolboxGroup">
+<!--            <action id="SVGToolbox.WrapInGroup1" class="action.WrapInGroupAction" text="Wrap In Group" description="Wrap in a group tag" />-->
+<!--            <action id="SVGToolbox.WrapInGroup2" class="action.WrapInGroupAction" text="Wrap In Group" description="Wrap in a group tag" />-->
             <add-to-group group-id="EditorPopupMenu" anchor="last"/>
-            <action id="SVGToolbox.WrapInGroup" class="action.WrapInGroupAction" text="Wrap In Group" description="Wrap in a group tag" />
         </group>
     </actions>
 </idea-plugin>

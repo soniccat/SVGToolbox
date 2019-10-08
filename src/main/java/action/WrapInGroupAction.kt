@@ -16,7 +16,7 @@ import org.w3c.dom.Attr
 import org.w3c.dom.DOMException
 import org.w3c.dom.Node
 
-class WrapInGroupAction : AnAction("Hello") {
+class WrapInGroupAction : AnAction("SVGWrapInGroup") {
     override fun update(e: AnActionEvent) {
         super.update(e)
 
