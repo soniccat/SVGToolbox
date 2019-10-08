@@ -16,7 +16,7 @@ import org.w3c.dom.Attr
 import org.w3c.dom.DOMException
 import org.w3c.dom.Node
 
-class HelloAction : AnAction("Hello") {
+class WrapInGroupAction : AnAction("Hello") {
     override fun update(e: AnActionEvent) {
         super.update(e)
 
@@ -53,7 +53,7 @@ class HelloAction : AnAction("Hello") {
         if (tag == null) return
 
         if (tag.name == "path") {
-            WriteCommandAction.runWriteCommandAction(project, "Myplugin.Textboxes", "EditorPopupMenu", Runnable {
+            WriteCommandAction.runWriteCommandAction(project, "SVGToolbox.WrapInGroup", "EditorPopupMenu", Runnable {
                 val path = tag.getAttribute("android:pathData")?.value
                 if (path != null) {
                     val pathData = SVGOMAnimatedPathData(object: AbstractElement() {

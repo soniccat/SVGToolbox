@@ -8,7 +8,6 @@ buildscript {
 }
 
 plugins {
-    id 'java'
     id 'org.jetbrains.intellij' version '0.4.10'
 }
 
@@ -17,8 +16,8 @@ apply plugin: 'idea'
 apply plugin: 'kotlin'
 apply plugin: 'java'
 
-group 'FirstPlugin'
-version '1.0-SNAPSHOT'
+group 'com.aglushkov'
+version '0.0.1-SNAPSHOT'
 
 repositories {
     mavenCentral()
@@ -33,7 +32,7 @@ intellij {
     version '191.8026.42'
     pluginName 'SVGToolbox'
     plugins = ['android', 'Kotlin', 'Gradle']
-    alternativeIdePath "/Applications/Android Studio.app"
+//    alternativeIdePath "/Applications/Android Studio.app"
 }
 
 patchPluginXml {
