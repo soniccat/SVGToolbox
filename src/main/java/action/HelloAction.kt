@@ -1,3 +1,5 @@
+package action
+
 import com.intellij.openapi.actionSystem.*
 import com.intellij.openapi.command.WriteCommandAction
 import com.intellij.openapi.ui.Messages
@@ -111,7 +113,7 @@ class HelloAction : AnAction("Hello") {
 
         val createdTag = parentTag.createChildTag("group", "", "", false)
         val newTag = parentTag.addSubTag(createdTag, true)
-        newTag.setAttribute("name", "newGroup")
+        newTag.setAttribute("android:name", "newGroup")
         newTag.addSubTag(childToWrap, true)
         childToWrap.delete()
     }

@@ -24,10 +24,13 @@ hs_err_pid*
 
 # Gradle
 .gradle
+gradlew
 build
+gradle/
 
 # Intellij project files
 *.iml
 *.ipr
 *.iws
 .idea/
+local.properties
