@@ -1,10 +1,11 @@
 package action
 
+import action.extensions.psiFile
 import com.intellij.openapi.actionSystem.ActionGroup
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 
-class ToolboxGroup: ActionGroup("SVGGroup", false) {
+class SVGToolboxGroup: ActionGroup("SVGGroup", false) {
     override fun update(e: AnActionEvent) {
         super.update(e)
 
@@ -18,7 +19,7 @@ class ToolboxGroup: ActionGroup("SVGGroup", false) {
 
     override fun getChildren(e: AnActionEvent?): Array<AnAction> {
         val actions = ArrayList<AnAction>()
-        actions.add(UnbakeTransformationAction())
+        actions.add(UnbakeTranslationAction())
         actions.add(WrapInGroupAction())
 
         return actions.toTypedArray()

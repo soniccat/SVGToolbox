@@ -1,4 +1,4 @@
-package action
+package action.extensions
 
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys

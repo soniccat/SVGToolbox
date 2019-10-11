@@ -1,6 +1,5 @@
 package action
 
-import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.psi.PsiElement
 import com.intellij.psi.xml.XmlTag
 
