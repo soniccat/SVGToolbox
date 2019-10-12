@@ -25,5 +25,5 @@ fun XmlTag.getFloatAttributeValue(name: String): Float {
 }
 
 fun XmlTag.setFloatAttributeValue(name: String, value: Float) {
-    setAttribute(name, value.toString())
+    setAttribute(name, value.toShortString())
 }
