@@ -36,8 +36,6 @@ class UnbakeTranslationAction: AnAction(Globals.commandName(Name))  {
 
     private fun unbakeTransformation(tag: XmlTag) {
         var pathTag = tag
-        val path = pathTag.getAttribute(SVGPathAttribute.PathData.value)?.value
-        if (path == null) return
 
         // make sure we have the parent path tag
         var parentTag = pathTag.parentTag
@@ -46,12 +44,12 @@ class UnbakeTranslationAction: AnAction(Globals.commandName(Name))  {
             parentTag = pathTag.parentTag
         }
 
-        // parse to objects
+        // parse
         val svgGroup = SVGGroup()
         svgGroup.load(parentTag!!)
 
         val svgPath = SVGPath()
-        svgPath.parse(path)
+        svgPath.load(pathTag)
 
         // change and save
         val translation = svgPath.getTranslation()
@@ -59,7 +57,7 @@ class UnbakeTranslationAction: AnAction(Globals.commandName(Name))  {
         svgGroup.save(parentTag)
 
         svgPath.applyTranslation(translation.inverted())
-        pathTag.setAttribute(SVGPathAttribute.PathData.value, svgPath.toString())
+        svgPath.save(pathTag)
     }
 
     private fun findActionXmlTag(event: AnActionEvent): XmlTag? {
