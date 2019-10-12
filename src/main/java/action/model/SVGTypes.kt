@@ -11,7 +11,6 @@ enum class SVGPathAttribute(val value: String) {
 
 enum class SVGGroupAttribute(val value: String) {
     Name("android:name"),
-    PathData("android:pathData"),
     TranslateX("android:translateX"),
     TranslateY("android:translateY")
 }

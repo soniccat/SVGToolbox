@@ -1,7 +1,5 @@
 package action.model
 
-import com.intellij.psi.xml.XmlTag
-
 class SVGGroup {
     companion object {
         val DefaultName = "NewGroup"
