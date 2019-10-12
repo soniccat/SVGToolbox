@@ -6,7 +6,7 @@ class Globals {
         val groupId = "EditorPopupMenu"
 
         fun commandName(name: String): String {
-            return "${this.name}.name"
+            return "${this.name}.${name}"
         }
     }
 }

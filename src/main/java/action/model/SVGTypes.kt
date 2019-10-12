@@ -5,7 +5,11 @@ enum class SVGTag(val value: String) {
     Path("path")
 }
 
-enum class SVGTagAttribute(val value: String) {
+enum class SVGPathAttribute(val value: String) {
+    PathData("android:pathData"),
+}
+
+enum class SVGGroupAttribute(val value: String) {
     Name("android:name"),
     PathData("android:pathData"),
     TranslateX("android:translateX"),
