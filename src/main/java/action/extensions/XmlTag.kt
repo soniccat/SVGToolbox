@@ -4,6 +4,12 @@ import action.model.SVGTag
 import action.model.SVGGroupAttribute
 import com.intellij.psi.xml.XmlTag
 
+/**
+ * Wraps this in a new group tag
+ *
+ * @name the group tag name attribute value
+ * @return new copy of this wrapped in the group tag
+ */
 fun XmlTag.wrapInGroup(name: String): XmlTag? {
     val parentTag = this.parentTag
     if (parentTag == null) return null

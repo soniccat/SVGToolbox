@@ -34,38 +34,32 @@ class UnbakeTranslationAction: AnAction(Globals.commandName(Name))  {
         }
     }
 
-    fun unbakeTransformation(tag: XmlTag) {
+    private fun unbakeTransformation(tag: XmlTag) {
         var pathTag = tag
-        val tagPath = pathTag.getAttribute(SVGPathAttribute.PathData.value)?.value
+        val path = pathTag.getAttribute(SVGPathAttribute.PathData.value)?.value
+        if (path == null) return
 
-        tagPath?.let { path ->
-            try {
-                // make sure we have parent path tag
-                var parentTag = pathTag.parentTag
-                if (parentTag == null || parentTag.name != SVGTag.Group.value) {
-                    pathTag = pathTag.wrapInGroup(SVGGroup.DefaultName)!!
-                    parentTag = pathTag.parentTag
-                }
-
-                // parse to objects
-                val svgGroup = SVGGroup()
-                svgGroup.load(parentTag!!)
-
-                val svgPath = SVGPath()
-                svgPath.parse(path)
-
-                // change and save
-                val translation = svgPath.getTranslation()
-                svgGroup.translation += translation
-                svgGroup.save(parentTag)
-
-                svgPath.applyTranslation(translation.inverted())
-                pathTag.setAttribute(SVGPathAttribute.PathData.value, svgPath.toString())
-
-            } catch (e: Exception) {
-                // sth went wrong
-            }
+        // make sure we have the parent path tag
+        var parentTag = pathTag.parentTag
+        if (parentTag == null || parentTag.name != SVGTag.Group.value) {
+            pathTag = pathTag.wrapInGroup(SVGGroup.DefaultName)!!
+            parentTag = pathTag.parentTag
         }
+
+        // parse to objects
+        val svgGroup = SVGGroup()
+        svgGroup.load(parentTag!!)
+
+        val svgPath = SVGPath()
+        svgPath.parse(path)
+
+        // change and save
+        val translation = svgPath.getTranslation()
+        svgGroup.translation += translation
+        svgGroup.save(parentTag)
+
+        svgPath.applyTranslation(translation.inverted())
+        pathTag.setAttribute(SVGPathAttribute.PathData.value, svgPath.toString())
     }
 
     private fun findActionXmlTag(event: AnActionEvent): XmlTag? {
