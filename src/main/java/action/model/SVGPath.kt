@@ -5,7 +5,6 @@ import action.extensions.forEach
 import action.extensions.toAndroidString
 import org.apache.batik.anim.dom.SVGOMAnimatedPathData
 import org.apache.batik.dom.svg.SVGItem
-import org.apache.batik.dom.svg.SVGPathSegItem
 import org.w3c.dom.svg.SVGPathSeg
 import org.w3c.dom.svg.SVGPathSegList
 

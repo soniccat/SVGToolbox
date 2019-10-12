@@ -29,12 +29,12 @@ class UnbakeTranslationAction: AnAction(Globals.commandName(Name))  {
     override fun actionPerformed(e: AnActionEvent) {
         findActionXmlTag(e)?.let { t ->
             WriteCommandAction.runWriteCommandAction(e.project, Globals.commandName(Name), Globals.groupId, Runnable {
-                unbakeTransformation(t)
+                unbakeTranslation(t)
             }, e.psiFile())
         }
     }
 
-    private fun unbakeTransformation(tag: XmlTag) {
+    private fun unbakeTranslation(tag: XmlTag) {
         var pathTag = tag
 
         // make sure we have the parent path tag
